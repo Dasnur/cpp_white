@@ -13,11 +13,13 @@ int main(){
         cin >> res;
         a.push_back(res);
     }
-    if (a[0] == 0)
+    if (a[0] == 0 && a[1] != 0)
     {
         cout << -a[2] / a[1];
         return 0;
     }
+    if (a[0] == 0 && a[1] == 0)
+        return 0;
     double diskr = a[1] * a[1] - 4 * a[0] * a[2];
     if (diskr > 0)
     {
