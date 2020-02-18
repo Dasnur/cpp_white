@@ -14,6 +14,7 @@ int main(){
         a.push_back(res);
     }
     sort(begin(a), end(a));
+    string min = min_element(begin(a), end(a));
     cout << a[0];
     return 0;
 }
