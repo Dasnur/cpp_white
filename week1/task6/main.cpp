@@ -14,7 +14,7 @@ int main()
         if (a % 2 == 0)
         {
             cout << a;
-            if (a != b && (b % 2 == 0))
+            if (a != b && a != b - 1)
                 cout << ' ';
         }
         a++;
