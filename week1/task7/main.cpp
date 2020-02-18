@@ -20,7 +20,7 @@ int main()
                 res = i;
         }
     }
-    if (n == 2)
+    if (n >= 2)
         cout << res;
     if (n == 1)
         cout << -1;
