@@ -10,27 +10,13 @@ int main()
     int a, b, tmp, del;
 
     cin >> a >> b;
-    if (a < b)
+    while (a > 0 && b > 0)
     {
-        tmp = a;
-        a = b;
-        b = tmp;
-    }
-    if (a == b)
-    {
-        cout << a;
-        return 0;
-    }
-    del = a;
-    while (del > 0)
-    {
-        if (a % del == 0 && b % del == 0)
-        {
-            cout << del;
-            return 0;
-        }
+        if (a > b)
+            a = a % b;
         else
-            del--;
+            b = b % a;
     }
+    cout << a + b;
     return 0;
 }
