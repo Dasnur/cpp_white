@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-void    new_bus(map<string, vector<string>>& m)
+void    new_bus(map<string, vector<string>>& m, vector<string>& trash)
 {
     string bus;
     int stops;
@@ -17,22 +17,29 @@ void    new_bus(map<string, vector<string>>& m)
         m[bus].push_back(stop);
         stops--;
     }
+    trash.push_back(bus);
 }
 
-void    buses_for_stop(map<string, vector<string>>& m)
+void    buses_for_stop(map<string, vector<string>>& m, vector<string>& trash)
 {
     string stop;
     cin >> stop;
     int flag = 0;
-    for (auto item : m)
+    for (auto tr : trash)
     {
-        for (auto stops : item.second)
+        for (auto item : m)
         {
-            if (stops == stop)
+            if (tr == item.first)
             {
-                cout << item.first << ' ';
-                flag = 1;
-                break;
+                for (auto stops : item.second)
+                {
+                    if (stops == stop)
+                    {
+                        cout << item.first << ' ';
+                        flag = 1;
+                        //break;
+                    }
+                }
             }
         }
     }
@@ -79,14 +86,15 @@ int main()
     int n;
     cin >> n;
     map<string, vector<string>> m;
+    vector<string> trash;
     while (n > 0)
     {
         string s;
         cin >> s;
         if (s == "NEW_BUS")
-            new_bus(m);
+            new_bus(m, trash);
         if (s == "BUSES_FOR_STOP")
-            buses_for_stop(m);
+            buses_for_stop(m, trash);
         if (s == "STOPS_FOR_BUS")
             stops_for_bus(m);
         if (s == "ALL_BUSES")

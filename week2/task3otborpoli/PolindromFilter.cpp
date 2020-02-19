@@ -10,7 +10,7 @@ bool    IsPalindrom(string res)
     return true;
 }
 
-vector<string>  PolindromFilter(vector<string> words, int minLength)
+vector<string>  PalindromFilter(vector<string> words, int minLength)
 {
     vector<string> res;
     for (string i : words)
