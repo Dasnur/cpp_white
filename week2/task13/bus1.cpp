@@ -48,7 +48,7 @@ void    buses_for_stop(map<string, vector<string>>& m, vector<string>& trash)
     cout << endl;
 }
 
-void    stops_for_bus(map<string, vector<string>>& m)
+void    stops_for_bus(map<string, vector<string>>& m, vector<string>& trash)
 {
     string bus;
     cin >> bus;
@@ -60,16 +60,22 @@ void    stops_for_bus(map<string, vector<string>>& m)
     for (auto stops : m[bus])
     {
         string res;
-        for (auto item1 : m)
+        for (auto tr : trash)
         {
-            if (item1.first != bus)
+            for (auto item1 : m)
             {
-                for (auto stops1 : item1.second)
+                if (item1.first == tr)
                 {
-                    if (stops1 == stops)
+                    if (item1.first != bus)
                     {
-                        res += item1.first;
-                        res += " ";
+                        for (auto stops1 : item1.second)
+                        {
+                            if (stops1 == stops)
+                            {
+                                res += item1.first;
+                                res += " ";
+                            }
+                        }
                     }
                 }
             }
@@ -96,7 +102,7 @@ int main()
         if (s == "BUSES_FOR_STOP")
             buses_for_stop(m, trash);
         if (s == "STOPS_FOR_BUS")
-            stops_for_bus(m);
+            stops_for_bus(m, trash);
         if (s == "ALL_BUSES")
         {
             if (m.size() == 0)
