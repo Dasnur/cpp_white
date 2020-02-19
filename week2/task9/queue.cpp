@@ -40,7 +40,7 @@ void    worry(const vector<bool>& q)
         if (i == true)
             res++;
     }
-    cout << res;
+    cout << res << endl;
 }
 
 int     main(){
