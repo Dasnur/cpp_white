@@ -92,7 +92,6 @@ int     main()
             next(month, m);
         if (s == "DUMP")
             dump(month);
-        cout << month.size() << ' ' << m << endl;
         n--;
     }
     return 0;
