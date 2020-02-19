@@ -20,7 +20,7 @@ int main()
         if (res[i] > sum)
             otvet.push_back(i);
     }
-    cout << n - otvet.size() + 1 << endl;
+    cout << otvet.size() << endl;
     for (int i : otvet)
         cout << i << ' ';
     return 0;
