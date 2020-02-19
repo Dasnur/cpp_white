@@ -1,4 +1,4 @@
-vector<int>    Reverse(const vector<int>& v)
+vector<int>    Reversed(const vector<int>& v)
 {
     vector<int> tmp;
 
