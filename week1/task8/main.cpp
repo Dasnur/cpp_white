@@ -16,6 +16,11 @@ int main()
         a = b;
         b = tmp;
     }
+    if (a == b)
+    {
+        cout << a;
+        return 0;
+    }
     del = a;
     while (del > 0)
     {
