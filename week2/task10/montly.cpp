@@ -33,45 +33,45 @@ void    next(vector<vector<string>>& month, int& m)
         month[27].insert(end(month[27]), begin(month[30]), end(month[30]));
         month.resize(28);
     }
-    else if (m == 6)
+    else if (m % 12 == 6)
     {
         m++;
         return ;
     }
-    else if (m == 11)
+    else if (m % 12 == 11)
     {
         m++;
         return ;
     }
-    else if (m == 1)
+    else if (m % 12 == 1)
         month.resize(31);
-    else if (m == 2)
+    else if (m % 12 == 2)
     {
         month[29].insert(end(month[29]), begin(month[30]), end(month[30]));
         month.resize(30);
     }
-    else if (m == 3)
+    else if (m % 12 == 3)
         month.resize(31);
-    else if (m == 4)
+    else if (m % 12 == 4)
     {
         month[29].insert(end(month[29]), begin(month[30]), end(month[30]));
         month.resize(30);
     }
-    else if (m == 5)
+    else if (m % 12 == 5)
         month.resize(31);
-    else if (m == 7)
+    else if (m % 12 == 7)
     {
         month[29].insert(end(month[29]), begin(month[30]), end(month[30]));
         month.resize(30);
     }
-    else if (m == 8)
+    else if (m % 12 == 8)
        month.resize(31); 
-    else if (m == 9)
+    else if (m % 12 == 9)
     {
         month[29].insert(end(month[29]), begin(month[30]), end(month[30]));
         month.resize(30);
     }
-    else if (m == 10)
+    else if (m % 12 == 10)
         month.resize(31); 
     m++;
 }   
