@@ -70,7 +70,7 @@ void    stops_for_bus(map<string, vector<string>>& m)
         if (res.size() != 0)
             cout << "Stop " << stops << ": " << res << endl;
         else
-            cout << "Stop "<< stops << " no interchange" << endl;
+            cout << "Stop "<< stops << ": no interchange" << endl;
     }
 }
 
