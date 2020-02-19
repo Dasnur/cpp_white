@@ -8,6 +8,7 @@ int main()
     int n;
     cin >> n;
     vector<int> res(n);
+    vector<int> otvet;
     for (int& i : res)
         cin >> i;
     int sum = 0;
@@ -17,7 +18,10 @@ int main()
     for (int i = 0; i < n; i++)
     {
         if (res[i] > sum)
-            cout << i << ' ';
+            otvet.push_back(i);
     }
+    cout << n - otvet.size() + 1 << endl;
+    for (int i : otvet)
+        cout << i << ' ';
     return 0;
 }
