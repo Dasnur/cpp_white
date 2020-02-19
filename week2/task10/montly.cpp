@@ -33,7 +33,7 @@ void    next(vector<vector<string>>& month, int& m)
         month[27].insert(end(month[27]), begin(month[30]), end(month[30]));
         month.resize(28);
     }
-    else if (m == 7)
+    else if (m == 6)
         return ;
     else if (m == 11)
         return ;
