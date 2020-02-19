@@ -1,4 +1,4 @@
-void    Reverce(vector<int>& v)
+void    Reverse(vector<int>& v)
 {
     vector<int> tmp;
 
