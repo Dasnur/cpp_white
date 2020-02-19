@@ -34,9 +34,15 @@ void    next(vector<vector<string>>& month, int& m)
         month.resize(28);
     }
     else if (m == 6)
+    {
+        m++;
         return ;
+    }
     else if (m == 11)
+    {
+        m++;
         return ;
+    }
     else if (m == 1)
         month.resize(31);
     else if (m == 2)
@@ -86,6 +92,7 @@ int     main()
             next(month, m);
         if (s == "DUMP")
             dump(month);
+        cout << month.size() << ' ' << m << endl;
         n--;
     }
     return 0;
