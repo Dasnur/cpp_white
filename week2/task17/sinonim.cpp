@@ -34,7 +34,10 @@ int main()
                         i++;
                 }
             }
-            cout << m[s1].size() + i - 1<< endl;
+            if (m[s1].size() != 0) 
+                cout << m[s1].size() + i - 1 << endl;
+            else
+                cout << i << endl;
         }
         if (s == "CHECK")
         {
