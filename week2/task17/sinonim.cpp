@@ -18,15 +18,14 @@ void 	count(map<string, set<string>> &m)
 	string s1;
     cin >> s1;
     int i = 0;
+	set<string> tmp;
 	for (auto item : m)
 	{
 		if (item.second.count(s1))
-		{
-			if (m[s1].count(item.first) == 0)
-				i++;
-		}
+			tmp.insert(item.first);
 	}
-    cout << i + m[s1].size() << endl;
+	tmp.insert(m[s1].begin(), m[s1].end());
+    cout << tmp.size() << endl;
 }
 
 void	check(map<string, set<string>> &m)
