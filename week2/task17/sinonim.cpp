@@ -20,8 +20,11 @@ void 	count(map<string, set<string>> &m)
     int i = 0;
 	for (auto item : m)
 	{
-		if (item.second.count(s1) && m[s1].count(item.first) == 0)
-			i++;
+		if (item.second.count(s1))
+		{
+			if (m[s1].count(item.first) == 0)
+				i++;
+		}
 	}
     cout << i + m[s1].size() << endl;
 }
