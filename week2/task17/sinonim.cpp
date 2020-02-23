@@ -10,7 +10,8 @@ void	add(map<string, set<string>> &m)
 	string s1;
     string s2;
 	cin >> s1 >> s2;
-    m[s1].insert(s2);
+	if (m.count(s1) == 0)
+		m[s1].insert(s2);
 }
 
 void 	count(map<string, set<string>> &m)
