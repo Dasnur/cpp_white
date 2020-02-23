@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     int q;
-    map<string, vector<string>> m;
+    map<string, set<string>> m;
     cin >> q;
     while (q > 0)
     {
@@ -19,7 +19,7 @@ int main()
             string s1;
             string s2;
             cin >> s1 >> s2;
-            m[s1].push_back(s2);
+            m[s1].insert(s2);
         }
         if (s == "COUNT")
         {
