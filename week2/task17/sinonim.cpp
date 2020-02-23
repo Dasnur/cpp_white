@@ -32,17 +32,7 @@ void	check(map<string, set<string>> &m)
     string s2;
     int flag = 0;
     cin >> s1 >> s2;
-    for (auto sino : m[s1])
-    {
-    	if (sino == s2)
-            flag = 1;
-    }
-    for (auto sino : m[s2])
-    {
-        if (sino == s1)
-            flag = 1;
-    }
-    if (flag == 1)
+    if (m[s1].count(s2) || m[s2].count(s1))
         cout << "YES" << endl;
     else
         cout << "NO" << endl;
