@@ -18,24 +18,11 @@ void 	count(map<string, set<string>> &m)
 	string s1;
     cin >> s1;
     int i = 0;
-    for (auto item : m)
-    {
-        int flag = 0;
-        for (auto sino : item.second)
-        {
-            if (sino == s1)
-            {
-                flag = 2;
-                for (auto aaa : m[s1])
-                {
-                    if (item.first == aaa)
-                    flag = 1;
-                }
-            } 
-        }
-        if (flag == 2)
-            i++;
-    }
+	for (auto item : m)
+	{
+		if (item.second.count(s1) && m[s1].count(item.first) == 0)
+			i++;
+	}
     cout << i + m[s1].size() << endl;
 }
 
