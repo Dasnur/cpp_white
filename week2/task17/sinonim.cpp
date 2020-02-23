@@ -28,16 +28,23 @@ int main()
             int i = 0;
             for (auto item : m)
             {
+                int flag = 0;
                 for (auto sino : item.second)
                 {
                     if (sino == s1)
-                        i++;
+                    {
+                        flag = 2;
+                        for (auto aaa : m[s1])
+                        {
+                            if (item.first == aaa)
+                                flag = 1;
+                        }
+                    } 
                 }
+                if (flag == 2)
+                    i++;
             }
-            if (m[s1].size() != 0) 
-                cout << m[s1].size() + i - 1 << endl;
-            else
-                cout << i << endl;
+            cout << i + m[s1].size() << endl;
         }
         if (s == "CHECK")
         {
