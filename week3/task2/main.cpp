@@ -5,9 +5,9 @@ using namespace std;
 
 string    low_registr(string s)
 {
-    for (auto &ch : s)
+    for (char &ch : s)
     {
-        if ((ch > 'A') && (ch < 'Z'))
+        if ((ch >= 'A') && (ch <= 'Z'))
             ch = ch + 32;
     }
     return s;
