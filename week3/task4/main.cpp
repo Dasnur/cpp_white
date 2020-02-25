@@ -31,11 +31,11 @@ class	Person
 					break;
 				yearf--;
 			}
-			if (yearn == 1899 && yearf == 1899)
+			if (yearn == 0 && yearf == 0)
 				return "Incognito";
-			if (yearn == 1899)
+			if (yearn == 0)
 				return m[yearf]["LN"] + " with unknown first name";
-			else if (yearf == 1899)
+			else if (yearf == 0)
 				return m[yearn]["FN"] + " with unknown last name";
 			else
 				return m[yearn]["FN"] + ' ' + m[yearf]["LN"];
