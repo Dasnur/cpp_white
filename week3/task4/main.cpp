@@ -19,13 +19,13 @@ class	Person
 		{
 			int yearn = year;
 			int yearf = year;
-			while (yearn > 1899)
+			while (yearn > 0)
 			{
 				if (m[yearn].count("FN") != 0)
 					break;
 				yearn--;
 			}
-			while (yearf > 1899)
+			while (yearf > 0)
 			{
 				if (m[yearf].count("LN") != 0)
 					break;
