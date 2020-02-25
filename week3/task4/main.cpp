@@ -110,6 +110,10 @@ class	Person
 				else
 					res1 = res1 + " " + item;
 			}
+			if (sname.size() == 0)
+				res1 += "with unknown last name";
+			if (fname.size() == 0)
+				res1 += " with unknown first name";
 			if (flag == 2)
 				res1 += ")";
 			if (res1 == "")
@@ -122,7 +126,6 @@ class	Person
 
 int main()
 {
-
   Person person;
   
   person.ChangeFirstName(1965, "Polina");
@@ -156,6 +159,5 @@ int main()
   person.ChangeLastName(1961, "Ivanova");
   cout << person.GetFullNameWithHistory(1967) << endl;
   
-  return 0;
   return 0;
 }
