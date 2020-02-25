@@ -1,16 +1,10 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <map>
-using namespace std;
-
 class	Person
 {
 	public:
         Person(const string& f_name, const string & s_name, int year)
         {
-            ChangeFirstName(year, f_name);
-            ChangeLastName(year, s_name);
+            m[year]["FN"] = f_name;
+            m[year]["LN"] = s_name;
             year_of_birth = year;
         }
 		void ChangeFirstName(int year, const string& first_name)
@@ -138,18 +132,3 @@ class	Person
 		map <int, map<string, string>> m;
         int year_of_birth;
 };
-
-int main() {
-  Person person("Polina", "Sergeeva", 1960);
-  for (int year : {1959, 1960}) {
-    cout << person.GetFullNameWithHistory(year) << endl;
-  }
-  
-  person.ChangeFirstName(1965, "Appolinaria");
-  person.ChangeLastName(1967, "Ivanova");
-  for (int year : {1965, 1967}) {
-    cout << person.GetFullNameWithHistory(year) << endl;
-  }
-
-  return 0;
-}
