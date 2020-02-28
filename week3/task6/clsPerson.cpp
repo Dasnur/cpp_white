@@ -1,3 +1,9 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+using namespace std;
+
 class	Person
 {
 	public:
@@ -19,35 +25,37 @@ class	Person
                 return ;
 			m[year]["LN"] = last_name;
 		}
-		string GetFullName(int year)
+		string GetFullName(int year) const
 		{
+            map <int, map<string, string>> mm = m;
             if (year < year_of_birth)
                 return "No person";
 			int yearn = year;
 			int yearf = year;
 			while (yearn > 0)
 			{
-				if (m[yearn].count("FN") != 0)
+				if (mm[yearn].count("FN") != 0)
 					break;
 				yearn--;
 			}
 			while (yearf > 0)
 			{
-				if (m[yearf].count("LN") != 0)
+				if (mm[yearf].count("LN") != 0)
 					break;
 				yearf--;
 			}
 			if (yearn == 0 && yearf == 0)
 				return "Incognito";
 			if (yearn == 0)
-				return m[yearf]["LN"] + " with unknown first name";
+				return mm[yearf]["LN"] + " with unknown first name";
 			else if (yearf == 0)
-				return m[yearn]["FN"] + " with unknown last name";
+				return mm[yearn]["FN"] + " with unknown last name";
 			else
-				return m[yearn]["FN"] + ' ' + m[yearf]["LN"];
+				return mm[yearn]["FN"] + ' ' + mm[yearf]["LN"];
 		}
-		string GetFullNameWithHistory(int year)
+		string GetFullNameWithHistory(int year) const
 		{
+            map <int, map<string, string>> mm = m;
             if (year < year_of_birth)
                 return "No person";
 			int yearn = year;
@@ -59,24 +67,24 @@ class	Person
 			int flag = 0;
 			while (yearn > 0)
 			{
-				if (m[yearn].count("FN") != 0)
+				if (mm[yearn].count("FN") != 0)
 				{
-					if (m[yearn]["FN"] != prev_name)
+					if (mm[yearn]["FN"] != prev_name)
 					{
-						prev_name = m[yearn]["FN"];
-						fname.push_back(m[yearn]["FN"]);
+						prev_name = mm[yearn]["FN"];
+						fname.push_back(mm[yearn]["FN"]);
 					}
 				}
 				yearn--;
 			}
 			while (yearf > 0)
 			{
-				if (m[yearf].count("LN") != 0)
+				if (mm[yearf].count("LN") != 0)
 				{
-					if (m[yearf]["LN"] != prev_name)
+					if (mm[yearf]["LN"] != prev_name)
 					{
-						prev_name = m[yearf]["LN"];
-						sname.push_back(m[yearf]["LN"]);
+						prev_name = mm[yearf]["LN"];
+						sname.push_back(mm[yearf]["LN"]);
 					}
 				}
 				yearf--;
