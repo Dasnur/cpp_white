@@ -8,7 +8,13 @@ using namespace std;
 void    free_all(int **res, int h)
 {
     for (int j = 0; j < h; j++)
-        free(res[j]);
+	{
+		if (res[j])
+		{
+        	free(res[j]);
+			res[j] = NULL;
+		}
+	}
 }
 
 class   Matrix
@@ -35,10 +41,11 @@ public:
 		w = wn;
 		int j = 0;
 		int i = 0;
-		m = (int **)malloc(sizeof(int) * h);
+		m = (int **)malloc(sizeof(int*) * h);
         while (j < h)
         {
             m[j] = (int *)malloc(sizeof(int) * w);
+			i = 0;
             while (i < w)
             {
                 m[j][i] = 0;
@@ -66,10 +73,11 @@ public:
         {
             free_all(m, h);
             free(m);
+			m = NULL;
         }
         h = nh;
         w = nw;
-        m = (int **)malloc(sizeof(int) * h);
+        m = (int **)malloc(sizeof(int*) * h);
         while (j < h)
         {
             m[j] = (int *)malloc(sizeof(int) * w);
@@ -162,6 +170,7 @@ bool	compare_mat(const Matrix &m1, const Matrix &m2)
 	int j = 0;
 	while (j < m1.GetNumRows())
 	{
+		i = 0;
 		while (i < m1.GetNumColumns())
 		{
 			if (m1.At(j, i) == m2.At(j, i))
@@ -176,17 +185,19 @@ bool	compare_mat(const Matrix &m1, const Matrix &m2)
 
 bool	operator==(const Matrix &m1, const Matrix &m2)
 {
-	if ((m1.GetNumColumns() == m2.GetNumColumns()) && m1.GetNumRows() == m2.GetNumRows())
+	if ((m1.GetNumColumns() == m2.GetNumColumns()) && (m1.GetNumRows() == m2.GetNumRows()))
 	{
 		if (compare_mat(m1, m2))
 			return true;
 	}
+	if ((m1.GetNumColumns() == 0 || m1.GetNumRows() == 0) && (m2.GetNumColumns() == 0 || m2.GetNumRows() == 0))
+		return true;
 	return false;
 }
 
 Matrix	operator+(const Matrix &m1, const Matrix &m2)
 {
-	if ((m1.GetNumColumns() == m2.GetNumColumns()) && m1.GetNumRows() == m2.GetNumRows())
+	if ((m1.GetNumColumns() == m2.GetNumColumns()) && (m1.GetNumRows() == m2.GetNumRows()))
 	{
 		int j = 0;
 		int i = 0;
@@ -203,6 +214,11 @@ Matrix	operator+(const Matrix &m1, const Matrix &m2)
 		}
 		return (res);
 	}
+	else if ((m1.GetNumColumns() == 0 || m1.GetNumRows() == 0) && (m2.GetNumColumns() == 0 || m2.GetNumRows() == 0))
+	{
+		Matrix res;
+		return (res);
+	}
 	else
-		throw invalid_argument("");
+		throw invalid_argument("wrong size");
 }
